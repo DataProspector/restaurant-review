@@ -33,11 +33,6 @@ class PlacesController < ApplicationController
         @places = Place.new
     end
 
-    def create
-        current_user.places.create(place_params)
-        redirect_to root_path
-    end
-    
     def destroy
         @place = Place.find(params[:id])
         @place.destroy
