@@ -1,0 +1,10 @@
+<div class="box col-xs-10 col-xs-offset-1">
+  <h1 class="text-center">Edit Your Place Details</h1>
+  <%= simple_form_for @place do |f| %>
+    <%= f.input :name %><br />
+    <%= f.input :address %><br />
+    <%= f.input :description %>
+    <br />
+    <%= f.submit 'Edit', class: 'btn btn-info center-block' %>
+  <% end %>
+</div>
