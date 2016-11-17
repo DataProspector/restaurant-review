@@ -1,9 +1,21 @@
 <% @places.each do |place| %>
     <div style="width:500px; margin: 0 auto; height:200px; border:1px solid #000; box-shadow:">
-        <h3><%= place.name %></h3>
+        <h1><%= link_to place.name, place_path(place) %></h1>
         <h3><%= place.address %></h3>
         <h3><%= place.description %></h3>
+        
+        <div class="pull-right">
+            <% if current_user && current_user == @place.user %>
+                <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
+            <% end %>
+        </div>
+        
+        <% if place.user.present? %>
+            <small>Added by: <%= place.user.email %></small>
+        <% end %>
+
     </div><br>
 <% end %>
 
 <div class = "box text-center inner"
+
